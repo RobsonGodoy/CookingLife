@@ -16,9 +16,6 @@
                 alt="Foto de uma mulher cozinhando com uma bacia de vidro nas mãos. Ela está sorrindo e está apoiando um celular entre seu rosto e ombro."
                 class="foto-banner">
         </div>
-        <h1 class="titulo">
-            Texto do Banner.vue
-        </h1>
     </header>
 </template>
 
