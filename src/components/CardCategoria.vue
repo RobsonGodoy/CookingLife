@@ -1,31 +1,32 @@
 <script lang="ts">
+import IngredienteSelecionavel from './IngredienteSelecionavel.vue';
 import Tag from './Tag.vue';
 
 
 export default {
-    props: {
-        categoria: { type: Object, required: true }
-    },
-    components: { Tag }
+  props: {
+    categoria: { type: Object, required: true }
+  },
+  components: { Tag, IngredienteSelecionavel }
 }
 </script>
 
 <template>
-    <article class="categoria">
-        <header class="categoria__cabecalho">
-            <img :src="`/imagens/icones/categorias_ingredientes/${categoria.imagem}`" alt="" class="categoria__imagem">
+  <article class="categoria">
+    <header class="categoria__cabecalho">
+      <img :src="`/imagens/icones/categorias_ingredientes/${categoria.imagem}`" alt="" class="categoria__imagem">
 
-            <h2 class="paragrafo-lg categoria__nome">{{ categoria.nome }}</h2>
-        </header>
+      <h2 class="paragrafo-lg categoria__nome">{{ categoria.nome }}</h2>
+    </header>
 
-        <ul class="categoria__ingredientes">
-            <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
-                <Tag :texto="ingrediente"/>
+    <ul class="categoria__ingredientes">
+      <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
+        <IngredienteSelecionavel :ingrediente="ingrediente" />
 
-            </li>
+      </li>
 
-        </ul>
-    </article>
+    </ul>
+  </article>
 </template>
 <style scoped>
 .categoria {
@@ -65,6 +66,4 @@ export default {
   gap: 0.5rem;
   flex-wrap: wrap;
 }
-
-
 </style>

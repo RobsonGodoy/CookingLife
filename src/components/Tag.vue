@@ -1,14 +1,14 @@
 <script lang="ts">
 export default {
     props: {
-        texto: {type: String, required: true},
-        ativa: {type: Boolean}
+        texto: { type: String, required: true },
+        ativa: { type: Boolean }
     }
 }
 </script>
 
 <template>
-    <span class="tag" :class="{ativa: ativa}">
+    <span class="tag" :class="{ ativa: ativa }">
         {{ texto }}
     </span>
 </template>
@@ -32,5 +32,4 @@ export default {
     background: var(--coral, #F0633C);
     font-weight: 700;
 }
-
 </style>
