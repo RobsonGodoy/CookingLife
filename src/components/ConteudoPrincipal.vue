@@ -5,10 +5,18 @@ import Tag from './Tag.vue';
 export default {
     data() {
         return {
-            ingredientes: ['Alho', 'Manteiga', 'Oregano']
+            ingredientes: [] as string[]
         };
     },
-    components: { SelecionarIngredientesVue, Tag }
+    components: { SelecionarIngredientesVue, Tag },
+    methods: {
+        adicionarIngrediente(ingrediente: string) {
+            this.ingredientes.push(ingrediente)
+        },
+        removerIngrediente(ingrediente:string) {
+            this.ingredientes = this.ingredientes.filter(iLista => ingrediente !== iLista);
+        }
+    }
 }
 </script>
 
@@ -20,7 +28,7 @@ export default {
             </span>
             <ul v-if="ingredientes.length" class="ingredientes-sua-lista">
                 <li v-for="ingrediente in ingredientes" :key="ingrediente">
-                    <Tag :texto="ingrediente" :ativa="true"/>
+                    <Tag :texto="ingrediente" :ativa="true" />
                 </li>
             </ul>
             <p v-else class="paragrafo lista-vazia">
@@ -29,7 +37,7 @@ export default {
             </p>
         </section>
 
-        <SelecionarIngredientesVue />
+        <SelecionarIngredientesVue @adicionar-ingrediente="adicionarIngrediente" @remover-ingrediente="removerIngrediente"/>
     </main>
 </template>
 <style scoped>
